@@ -1,0 +1,29 @@
+// GET /users - All users
+
+// GET /users/{UserId} - Single user
+
+// POST /createUser - Create new user
+
+// PUT /users/{userId} -  User settings
+
+// DELETE /users/{userId} - Remove User
+
+// Get /users/search - Search user
+
+
+
+
+
+// Function to extract and display the expiration time of the JWT
+
+function getJwtExpirationTime(token) {
+    try {
+        // Decode the token without verifying to get the payload
+        const decoded = jwt.decode(token);
+        if (decoded && decoded.exp) {
+            // Convert expiration time from seconds to a readable date format
+            const expirationTime = new Date(decoded.exp * 1000);
+            return expirationTime;
+        }
+        return null;
+    } catch (error) {
